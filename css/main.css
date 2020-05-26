@@ -1,0 +1,156 @@
+:root {
+    --gap: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+    body {
+        margin: 0;
+        min-height: 100%;
+        background-image: url(../img/P70fQ6Xu.jpg);
+        background-repeat: no-repeat;
+        background-position: top;
+        display: flex;
+        background-size: cover;
+    }
+        body > .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+            body > .container header {
+                display: grid;
+                grid-template-columns: 50px 1fr 100px;
+                width: 100%;
+            }
+                body > .container header .live {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                    body > .container header .live img {
+                        height: 15px;
+                        width: 15px;
+                    }
+                body > .container header .logo {
+
+                }
+                    body > .container header .logo img {
+                        height: 50px;
+                        width: 150px;
+                    }
+                body > .container header .viewers {
+                    display: grid;
+                    justify-content: center;
+                    align-items: center;
+                    grid-auto-flow: column;
+                    grid-gap: calc(var(--gap) * 2);
+                    color: grey;
+                }
+            body > .container .feedbacks {
+                width: 100%;
+                display: grid;
+                grid-template-rows: repeat(3, max-content);
+                grid-template-columns: 1fr 100px 100px;
+            }
+            body > .container .feedbacks .comments {
+                overflow: hidden;
+                max-height: 150px;
+                padding: 10px;
+            }
+                body > .container .feedbacks .comments .comment {
+                    padding: 5px 0;
+                    display: flex;
+                    flex-direction: column;
+                }
+                    body > .container .feedbacks .comments .comment .user_name {
+                        color: #333;
+                        font-size: 85%;
+                        font-style: italic;
+                        padding: 5px;
+                    }
+                    body > .container .feedbacks .comments .comment .user_comment {
+                        padding: 0 5px;
+                        color: #ccc;
+                        font-size: 90%;
+                    }
+            body > .container .feedbacks .hearts,
+            body > .container .feedbacks .claps {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                cursor: pointer;
+                align-items: center;
+            }
+            body > .container .feedbacks .hearts:hover,
+            body > .container .feedbacks .claps:hover {
+                transform: scale(1.1);
+            }
+                body > .container .feedbacks .hearts img,
+                body > .container .feedbacks .claps img {
+                    height: 25px;
+                }
+            body > .container .feedbacks .suggestions {
+                grid-column: 1/4;
+                padding: 0 5px;
+            }
+                body > .container .feedbacks .suggestions ul {
+                    margin: 0;
+                    list-style-type: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 0;
+                }
+                    body > .container .feedbacks .suggestions ul li {
+                        margin: 5px;
+                        background: #222;
+                        padding: 10px;
+                        border-radius: 10px;
+                        color: #fff;
+                        font-size: 85%;
+                        letter-spacing: 0.5px;
+                        cursor: pointer;
+                    }
+                        body > .container .feedbacks .suggestions ul li img,
+                        body > .container .feedbacks .comments .comment img {
+                            height: 15px;
+                        }
+            body > .container .feedbacks .comment-form {
+                display: flex;
+                justify-content: space-evenly;
+                grid-column: 1/4;
+                padding: 0 10px 10px 10px;
+            }
+                body > .container .feedbacks .comment-form input {
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    height: 40px;
+                    border-bottom: 1px solid #222;
+                    width: 95%;
+                    color: #fff;
+                }
+                    body > .container .feedbacks .comment-form input::placeholder {
+                        color: #fff;
+                    }
+                body > .container .feedbacks .comment-form button {
+                    margin-left: 10px;
+                    height: 40px;
+                    width: 50px;
+                    border-radius: 5px;
+                    font-size: 85%;
+                    color: #fff;
+                    background: #222;
+                    cursor: pointer;
+                }
+                body > .container .feedbacks .comment-form button:hover {
+                    color: #222;
+                    background: #fff;
+                    border-color: #222;
+                }
