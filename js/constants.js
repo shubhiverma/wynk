@@ -1,6 +1,6 @@
 const comment_suggestions = [
     "Hello", "I Love You", "How are you?", "Thank you",
-    "<img src=\"../img/laugh.svg\">", "Beautiful", "<img src=\"../img/love.svg\">", "Hey there!", "What a lovely day!", "Congratulations!",
+    "<img src=\"./img/laugh.svg\">", "Beautiful", "<img src=\"./img/love.svg\">", "Hey there!", "What a lovely day!", "Congratulations!",
     "How have you been?", "You look pretty"
 ];
 
