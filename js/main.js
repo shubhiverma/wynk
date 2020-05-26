@@ -23,6 +23,13 @@ function addEventListeners() {
 
         heart_count.setAttribute('value', heart_count_value);
         heart_count.innerHTML = formatNumber(heart_count_value);
+
+        const s = hearts.querySelector('span');
+
+        s.classList.remove('animate');
+        window.requestAnimationFrame(() => {
+            s.classList.add('animate');
+        });
     });
 
     claps.addEventListener('click', () => {
@@ -34,6 +41,13 @@ function addEventListeners() {
 
         clap_count.setAttribute('value', clap_count_value);
         clap_count.innerHTML = formatNumber(clap_count_value);
+
+        const s = claps.querySelector('span');
+
+        s.classList.remove('animate');
+        window.requestAnimationFrame(() => {
+            s.classList.add('animate');
+        });
     });
 
 }
