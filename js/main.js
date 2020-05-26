@@ -17,11 +17,11 @@ function addEventListeners() {
     hearts.addEventListener('click', () => {
         let heart_count = document.body.querySelector('.hearts .heart_count');
 
-        let heart_count_value = heart_count.getAttribute('value');
+        let heart_count_value = heart_count.getAttribute('data-heart-count');
 
         heart_count_value = parseInt(heart_count_value) + 1;
 
-        heart_count.setAttribute('value', heart_count_value);
+        heart_count.setAttribute('data-heart-count', heart_count_value);
         heart_count.innerHTML = formatNumber(heart_count_value);
 
         const s = hearts.querySelector('span');
@@ -35,11 +35,11 @@ function addEventListeners() {
     claps.addEventListener('click', () => {
         let clap_count = document.body.querySelector('.claps .clap_count');
 
-        let clap_count_value = clap_count.getAttribute('value');
+        let clap_count_value = clap_count.getAttribute('data-clap-count');
 
         clap_count_value = parseInt(clap_count_value) + 1;
 
-        clap_count.setAttribute('value', clap_count_value);
+        clap_count.setAttribute('data-clap-count', clap_count_value);
         clap_count.innerHTML = formatNumber(clap_count_value);
 
         const s = claps.querySelector('span');
@@ -104,11 +104,11 @@ setInterval(() => {
 
     let
         viewers_count = document.body.querySelector('.viewers .viewers_count'),
-        viewers_count_value = viewers_count.getAttribute('value');
+        viewers_count_value = viewers_count.getAttribute('data-viewers-count');
 
     viewers_count_value = parseInt(viewers_count_value) + Math.floor(Math.random() * 500);
 
-    viewers_count.setAttribute('value', viewers_count_value);
+    viewers_count.setAttribute('data-viewers-count', viewers_count_value);
     viewers_count.innerHTML = formatNumber(viewers_count_value);
 }, 2000);
 
