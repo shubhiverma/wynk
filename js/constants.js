@@ -1,7 +1,7 @@
 const comment_suggestions = [
     "Hello", "I Love You", "How are you?", "Thank you",
     "<img src=\"./img/laugh.svg\">", "Beautiful", "<img src=\"./img/love.svg\">", "Hey there!", "What a lovely day!", "Congratulations!",
-    "How have you been?", "You look pretty", "I'm proud of you"
+    "How have you been?", "You look pretty", "I'm proud of you", "Wow"
 ];
 
-const user_names = ["John Doe", "Adam Cooper", "Joey Levine", "Ken Adams", "Steve Jobs"];
+const user_names = ["John Doe", "Adam Cooper", "Joey Levine", "Ken Adams", "Steve Jobs", "Lily Stewart", "Emily Trescot"];
