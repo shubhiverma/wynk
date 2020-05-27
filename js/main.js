@@ -12,6 +12,7 @@ class WynkLive {
 
     load() {
         this.loadSuggestions();
+        this.loadEmojiFeedbacks();
         this.addEventListeners();
         this.manageTraffic();
     }
@@ -32,54 +33,46 @@ class WynkLive {
         this.container.querySelector('.suggestions').appendChild(suggestions_list);
     }
 
+    loadEmojiFeedbacks() {
+        const
+            feedbacks = this.container.querySelector('.feedbacks'),
+            suggestions = this.container.querySelector('.suggestions');
+
+        for(const emoji of ['clap', 'heart']) {
+
+            const emoji_container = document.createElement('div');
+            emoji_container.classList.add(emoji);
+
+            emoji_container.innerHTML = `
+                <span><img src="img/${emoji}.svg"></span>
+                <div class="emoji_count" data-emoji-count="5">5</div>
+            `;
+
+            emoji_container.addEventListener('click', () => {
+                let emoji_count = emoji_container.querySelector('.emoji_count');
+
+                emoji_count.dataset.emojiCount = parseInt(emoji_count.dataset.emojiCount) + 1;
+                emoji_count.innerHTML = this.formatNumber(emoji_count.dataset.emojiCount);
+
+                const span = emoji_container.querySelector('span');
+
+                span.classList.remove('animate');
+                window.requestAnimationFrame(() => {
+                    span.classList.remove('animate');
+                    span.classList.add('animate');
+                });
+            });
+
+            feedbacks.insertBefore(emoji_container, suggestions)
+        }
+    }
+
     addEventListeners() {
         const comment_form = this.container.querySelector('.comment-form');
         comment_form.addEventListener('submit', e => {
             e.preventDefault();
             this.addComment(comment_form.comment.value, "You");
             comment_form.reset();
-        });
-
-        const
-            hearts = this.container.querySelector('.hearts'),
-            claps = this.container.querySelector('.claps');
-
-        hearts.addEventListener('click', () => {
-            let heart_count = hearts.querySelector('.heart_count');
-
-            let heart_count_value = heart_count.dataset.heartCount;
-
-            heart_count_value = parseInt(heart_count_value) + 1;
-
-            heart_count.dataset.heartCount = heart_count_value;
-            heart_count.innerHTML = this.formatNumber(heart_count_value);
-
-            const span = hearts.querySelector('span');
-
-            span.classList.remove('animate');
-            window.requestAnimationFrame(() => {
-                span.classList.remove('animate');
-                span.classList.add('animate');
-            });
-        });
-
-        claps.addEventListener('click', () => {
-            let clap_count = claps.querySelector('.clap_count');
-
-            let clap_count_value = clap_count.dataset.clapCount;
-
-            clap_count_value = parseInt(clap_count_value) + 1;
-
-            clap_count.dataset.clapCount = clap_count_value;
-            clap_count.innerHTML = this.formatNumber(clap_count_value);
-
-            const span = claps.querySelector('span');
-
-            span.classList.remove('animate');
-            window.requestAnimationFrame(() => {
-                span.classList.remove('animate');
-                span.classList.add('animate');
-            });
         });
     }
 
@@ -138,7 +131,7 @@ class WynkLive {
         }, 3000);
 
         setInterval(() => {
-            this.container.querySelector('.hearts').click();
+            this.container.querySelector('.heart').click();
         }, 6000);
     }
 }
